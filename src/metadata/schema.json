@@ -1,0 +1,4873 @@
+{
+    "package": "LiveAgent",
+    "tagline": "LiveAgent API",
+    "description": "LiveAgent is the most reviewed and #1 rated help desk software for SMB in 2017. Stay closer to your customers and answer their questions faster with LiveAgent.",
+    "image": "https:\/\/logo.clearbit.com\/ladesk.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-LiveAgent-Package",
+    "keywords": [
+        "API",
+        "support",
+        "liveagent",
+        "helpdesk"
+    ],
+    "accounts": {
+        "domain": "ladesk.com\/",
+        "credentials": [
+            "apiKey"
+        ]
+    },
+    "steps": [
+        "Browse to http:\/\/ladesk.com",
+        "Register or log in",
+        "Navigate in the admin panel, while logged in as an admin, to the following location: Configuration > System > API and wait there a few seconds and an API key is going to be generated for you"
+    ],
+    "blocks": [
+        {
+            "name": "listAgents",
+            "description": "List of agents",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteAgent",
+            "description": "Delete agent",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleAgent",
+            "description": "Retrieves an agent",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "logoutAgent",
+            "description": "Logout an agent",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}\/_logout",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "pauseAgent",
+            "description": "Pauses an agent",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}\/_pause",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAgentStatus",
+            "description": "Gets agent statuses in departments",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}\/status",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateAgentStatus",
+            "description": "Updates agent statuses in departments",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "ID of the agent",
+                    "required": true
+                },
+                {
+                    "name": "departmentStatuses",
+                    "type": "List",
+                    "structure": {
+                        "name": "departmentStatus",
+                        "type": "JSON",
+                        "info": "Single department statusobject"
+                    },
+                    "info": "Object with statuses in departments",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "departments"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/agents\/{$data['agentId']}\/status",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "departments"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listCalls",
+            "description": "Retrieves list of all calls",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addCall",
+            "description": "Creates new call (ingoing \/ outcoming \/ internal). Does not initiate the outgoing call",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "channelId",
+                    "type": "String",
+                    "info": "ID of the channel",
+                    "required": false
+                },
+                {
+                    "name": "toNumber",
+                    "type": "String",
+                    "info": "Callee number",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "to_number"
+                    }
+                },
+                {
+                    "name": "viaNumber",
+                    "type": "String",
+                    "info": "Trunk number via which call was made \/ received",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "via_number"
+                    }
+                },
+                {
+                    "name": "fromNumber",
+                    "type": "String",
+                    "info": "Caller number",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "from_number"
+                    }
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "Ticket id or code",
+                    "required": false
+                },
+                {
+                    "name": "direction",
+                    "type": "Select",
+                    "options": [
+                        "in",
+                        "out",
+                        "int"
+                    ],
+                    "info": "Incoming call ('in' - default), outgoing call ('out') or internal call('int')",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "channelId",
+                            "to_number",
+                            "via_number",
+                            "from_number",
+                            "ticketId",
+                            "direction"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "answerCall",
+            "description": "Set call as answered by agent",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "toNumber",
+                    "type": "String",
+                    "info": "Callee number",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "to_number"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_answer",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "to_number"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "mergeCalls",
+            "description": "Merge secondary call into main call",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "secCallId",
+                    "type": "String",
+                    "info": "Callee number",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "Agent ID for removing from the call",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_merge",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "secCallId",
+                            "agentId"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "rerouteCall",
+            "description": "Lets the call ring to an another agent if available",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "reason",
+                    "type": "Select",
+                    "options": [
+                        "T",
+                        "D"
+                    ],
+                    "info": "T - timeout, D - decline",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_reroute",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "reason"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "ringCall",
+            "description": "Lets the call ring to an another agent if available",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "departmentId",
+                    "type": "String",
+                    "info": "Department ID",
+                    "required": false
+                },
+                {
+                    "name": "toNumber",
+                    "type": "String",
+                    "info": "Callee number",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "to_number"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_ring",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "departmentId",
+                            "to_number"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "stopCall",
+            "description": "Stops the call",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "fromNumber",
+                    "type": "String",
+                    "info": "Caller number",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "from_number"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_stop",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "from_number"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addMessageToCall",
+            "description": "Adds a message to the call group in corresponfing ticket",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                },
+                {
+                    "name": "fromNumber",
+                    "type": "String",
+                    "info": "Caller number",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "from_number"
+                    }
+                },
+                {
+                    "name": "message",
+                    "type": "String",
+                    "info": "Message body",
+                    "required": true
+                },
+                {
+                    "name": "type",
+                    "type": "Select",
+                    "options": [
+                        "T",
+                        "H",
+                        "A",
+                        "S",
+                        "N",
+                        "NF"
+                    ],
+                    "info": "T (text), H (html), A (audio - url to audio file or fileId), S (system), N (note), NF (note file)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/messages",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "from_number",
+                            "message",
+                            "type"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCallStatus",
+            "description": "Return the status of call",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "callId",
+                    "type": "String",
+                    "info": "ID of the call",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/status",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listCannedMessages",
+            "description": "List all canned messages",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/canned_messages",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addCannedMessage",
+            "description": "Creates new canned message`",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "departmentid",
+                    "type": "String",
+                    "info": "ID of the department",
+                    "required": false
+                },
+                {
+                    "name": "cannedMessageId",
+                    "type": "String",
+                    "info": "ID of the canned message",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "name": "keywords",
+                    "type": "String",
+                    "info": "Message keywords",
+                    "required": false
+                },
+                {
+                    "name": "messageText",
+                    "type": "String",
+                    "info": "Text of the canned message",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "messagetext"
+                    }
+                },
+                {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "ID of the user",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "userid"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/canned_messages",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "departmentid",
+                            "id",
+                            "keywords",
+                            "messagetext",
+                            "userid"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleCannedMessage",
+            "description": "Retrives canned message`",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "cannedMessageId",
+                    "type": "String",
+                    "info": "ID of the canned message",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/canned_messages\/{$data['cannedMessageId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateCannedMessage",
+            "description": "Updates canned message`",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "departmentid",
+                    "type": "String",
+                    "info": "ID of the department",
+                    "required": false
+                },
+                {
+                    "name": "cannedMessageId",
+                    "type": "String",
+                    "info": "ID of the canned message",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "id"
+                    }
+                },
+                {
+                    "name": "keywords",
+                    "type": "String",
+                    "info": "Message keywords",
+                    "required": false
+                },
+                {
+                    "name": "messageText",
+                    "type": "String",
+                    "info": "Text of the canned message",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "messagetext"
+                    }
+                },
+                {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "ID of the user",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "userid"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/canned_messages\/{$data['cannedMessageId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "departmentid",
+                            "id",
+                            "keywords",
+                            "messagetext",
+                            "userid"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteCannedMessage",
+            "description": "Deletes canned message`",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "cannedMessageId",
+                    "type": "String",
+                    "info": "ID of the canned message",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/canned_messages\/{$data['cannedMessageId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listCompanies",
+            "description": "Retrieves list of all companies",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/companies",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addCompany",
+            "description": "Creates new company",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "avatarUrl",
+                    "type": "String",
+                    "info": "Url to company avatar",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "avatar_url"
+                    }
+                },
+                {
+                    "name": "city",
+                    "type": "String",
+                    "info": "Company city",
+                    "required": false
+                },
+                {
+                    "name": "countryCode",
+                    "type": "String",
+                    "info": "Company country code",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "countrycode"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Company description",
+                    "required": false
+                },
+                {
+                    "name": "emails",
+                    "type": "List",
+                    "structure": {
+                        "name": "email",
+                        "type": "String",
+                        "info": "Single email"
+                    },
+                    "info": "Company emails",
+                    "required": false
+                },
+                {
+                    "name": "groups",
+                    "type": "List",
+                    "structure": {
+                        "name": "group",
+                        "type": "String",
+                        "info": "Single group"
+                    },
+                    "info": "Company groups",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Company id",
+                    "required": false
+                },
+                {
+                    "name": "ip",
+                    "type": "String",
+                    "info": "Company ip",
+                    "required": false
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Company language",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Company name",
+                    "required": false
+                },
+                {
+                    "name": "phones",
+                    "type": "List",
+                    "structure": {
+                        "name": "phone",
+                        "type": "String",
+                        "info": "Single phone"
+                    },
+                    "info": "Company phones",
+                    "required": false
+                },
+                {
+                    "name": "systemName",
+                    "type": "String",
+                    "info": "Company system name",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "type",
+                    "type": "Select",
+                    "options": [
+                        "V",
+                        "R"
+                    ],
+                    "info": " V - visitor, R - registered visitor",
+                    "required": false
+                },
+                {
+                    "name": "customFields",
+                    "type": "List",
+                    "structure": {
+                        "name": "customField",
+                        "type": "String",
+                        "info": "Single customField"
+                    },
+                    "info": "Company custom fields",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "custom_fields"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "String",
+                    "info": "Company coordinates",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "note",
+                    "type": "String",
+                    "info": "Company note",
+                    "required": false
+                },
+                {
+                    "name": "screen",
+                    "type": "String",
+                    "info": "Company screen",
+                    "required": false
+                },
+                {
+                    "name": "timeOffset",
+                    "type": "String",
+                    "info": "Company time offset",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "time_offset"
+                    }
+                },
+                {
+                    "name": "useragent",
+                    "type": "String",
+                    "info": "Company useragent",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/companies",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "useragent",
+                            "time_offset",
+                            "screen",
+                            "note",
+                            "avatar_url",
+                            "city",
+                            "countrycode",
+                            "description",
+                            "emails",
+                            "groups",
+                            "id",
+                            "ip",
+                            "language",
+                            "name",
+                            "phones",
+                            "system_name",
+                            "type",
+                            "latitude",
+                            "longitude"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleCompany",
+            "description": "Retrieves a company",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "ID of the company",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/companies\/{$data['companyId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateCompany",
+            "description": "Updates a company",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "ID of the company",
+                    "required": true
+                },
+                {
+                    "name": "avatarUrl",
+                    "type": "String",
+                    "info": "Url to company avatar",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "avatar_url"
+                    }
+                },
+                {
+                    "name": "city",
+                    "type": "String",
+                    "info": "Company city",
+                    "required": false
+                },
+                {
+                    "name": "countryCode",
+                    "type": "String",
+                    "info": "Company country code",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "countrycode"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Company description",
+                    "required": false
+                },
+                {
+                    "name": "emails",
+                    "type": "List",
+                    "structure": {
+                        "name": "email",
+                        "type": "String",
+                        "info": "Single email"
+                    },
+                    "info": "Company emails",
+                    "required": false
+                },
+                {
+                    "name": "groups",
+                    "type": "List",
+                    "structure": {
+                        "name": "group",
+                        "type": "String",
+                        "info": "Single group"
+                    },
+                    "info": "Company groups",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Company id",
+                    "required": false
+                },
+                {
+                    "name": "ip",
+                    "type": "String",
+                    "info": "Company ip",
+                    "required": false
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Company language",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Company name",
+                    "required": false
+                },
+                {
+                    "name": "phones",
+                    "type": "List",
+                    "structure": {
+                        "name": "phone",
+                        "type": "String",
+                        "info": "Single phone"
+                    },
+                    "info": "Company phones",
+                    "required": false
+                },
+                {
+                    "name": "systemName",
+                    "type": "String",
+                    "info": "Company system name",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "type",
+                    "type": "Select",
+                    "options": [
+                        "V",
+                        "R"
+                    ],
+                    "info": " V - visitor, R - registered visitor",
+                    "required": false
+                },
+                {
+                    "name": "customFields",
+                    "type": "List",
+                    "structure": {
+                        "name": "customField",
+                        "type": "String",
+                        "info": "Single customField"
+                    },
+                    "info": "Company custom fields",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "custom_fields"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "String",
+                    "info": "Company coordinates",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "note",
+                    "type": "String",
+                    "info": "Company note",
+                    "required": false
+                },
+                {
+                    "name": "screen",
+                    "type": "String",
+                    "info": "Company screen",
+                    "required": false
+                },
+                {
+                    "name": "timeOffset",
+                    "type": "String",
+                    "info": "Company time offset",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "time_offset"
+                    }
+                },
+                {
+                    "name": "useragent",
+                    "type": "String",
+                    "info": "Company useragent",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/companies\/{$data['companyId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "useragent",
+                            "time_offset",
+                            "screen",
+                            "note",
+                            "avatar_url",
+                            "city",
+                            "countrycode",
+                            "description",
+                            "emails",
+                            "groups",
+                            "id",
+                            "ip",
+                            "language",
+                            "name",
+                            "phones",
+                            "system_name",
+                            "type",
+                            "latitude",
+                            "longitude"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteCompany",
+            "description": "Deletes a company",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "ID of the company",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/companies\/{$data['companyId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listContacts",
+            "description": "Retrieves list of all contacts",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/contacts",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addContact",
+            "description": "Adds new contact",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "ID of the company",
+                    "required": true
+                },
+                {
+                    "name": "avatarUrl",
+                    "type": "String",
+                    "info": "Url to contact avatar",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "avatar_url"
+                    }
+                },
+                {
+                    "name": "city",
+                    "type": "String",
+                    "info": "Contact city",
+                    "required": false
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "Id of the company",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "company_id"
+                    }
+                },
+                {
+                    "name": "countryCode",
+                    "type": "String",
+                    "info": "Contact country code",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "countrycode"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Contact description",
+                    "required": false
+                },
+                {
+                    "name": "emails",
+                    "type": "List",
+                    "structure": {
+                        "name": "email",
+                        "type": "String",
+                        "info": "Single email"
+                    },
+                    "info": "Contact emails",
+                    "required": false
+                },
+                {
+                    "name": "firstname",
+                    "type": "String",
+                    "info": "Contact firstname",
+                    "required": false
+                },
+                {
+                    "name": "gender",
+                    "type": "Select",
+                    "options": [
+                        "M",
+                        "F"
+                    ],
+                    "info": "Contact gender",
+                    "required": false
+                },
+                {
+                    "name": "groups",
+                    "type": "List",
+                    "structure": {
+                        "name": "group",
+                        "type": "String",
+                        "info": "Single group"
+                    },
+                    "info": "Contact groups",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Contact id",
+                    "required": false
+                },
+                {
+                    "name": "ip",
+                    "type": "String",
+                    "info": "Contact ip",
+                    "required": false
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Contact language",
+                    "required": false
+                },
+                {
+                    "name": "lastname",
+                    "type": "String",
+                    "info": "Contact lastname",
+                    "required": false
+                },
+                {
+                    "name": "phones",
+                    "type": "List",
+                    "structure": {
+                        "name": "phone",
+                        "type": "String",
+                        "info": "Single phone"
+                    },
+                    "info": "Contact phones",
+                    "required": false
+                },
+                {
+                    "name": "systemName",
+                    "type": "String",
+                    "info": "Contact system name",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "type",
+                    "type": "Select",
+                    "options": [
+                        "V",
+                        "R"
+                    ],
+                    "info": " V - visitor, R - registered visitor",
+                    "required": false
+                },
+                {
+                    "name": "customFields",
+                    "type": "List",
+                    "structure": {
+                        "name": "customField",
+                        "type": "String",
+                        "info": "Single customField"
+                    },
+                    "info": "Contact custom fields",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "custom_fields"
+                    }
+                },
+                {
+                    "name": "jobPosition",
+                    "type": "String",
+                    "info": "Contact job position",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "job_position"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "String",
+                    "info": "Contact coordinates",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "note",
+                    "type": "String",
+                    "info": "Contact note",
+                    "required": false
+                },
+                {
+                    "name": "screen",
+                    "type": "String",
+                    "info": "Contact screen",
+                    "required": false
+                },
+                {
+                    "name": "timeOffset",
+                    "type": "String",
+                    "info": "Contact time offset",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "time_offset"
+                    }
+                },
+                {
+                    "name": "useragent",
+                    "type": "String",
+                    "info": "Contact useragent",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/contacts",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "useragent",
+                            "time_offset",
+                            "screen",
+                            "job_position",
+                            "custom_fields",
+                            "type",
+                            "system_name",
+                            "avatar_url",
+                            "city",
+                            "company_id",
+                            "countrycode",
+                            "description",
+                            "emails",
+                            "firstname",
+                            "gender",
+                            "groups",
+                            "id",
+                            "ip",
+                            "language",
+                            "lastname",
+                            "phones",
+                            "longitude",
+                            "latitude",
+                            "note"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleContact",
+            "description": "Retrieves a contact",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "contactId",
+                    "type": "String",
+                    "info": "ID of the contact",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/contacts\/{$data['contactId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateContact",
+            "description": "Updates a contact",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "contactId",
+                    "type": "String",
+                    "info": "ID of the contact",
+                    "required": true
+                },
+                {
+                    "name": "avatarUrl",
+                    "type": "String",
+                    "info": "Url to contact avatar",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "avatar_url"
+                    }
+                },
+                {
+                    "name": "city",
+                    "type": "String",
+                    "info": "Contact city",
+                    "required": false
+                },
+                {
+                    "name": "companyId",
+                    "type": "String",
+                    "info": "Id of the company",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "company_id"
+                    }
+                },
+                {
+                    "name": "countryCode",
+                    "type": "String",
+                    "info": "Contact country code",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "countrycode"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "info": "Contact description",
+                    "required": false
+                },
+                {
+                    "name": "emails",
+                    "type": "List",
+                    "structure": {
+                        "name": "email",
+                        "type": "String",
+                        "info": "Single email"
+                    },
+                    "info": "Contact emails",
+                    "required": false
+                },
+                {
+                    "name": "firstname",
+                    "type": "String",
+                    "info": "Contact firstname",
+                    "required": false
+                },
+                {
+                    "name": "gender",
+                    "type": "Select",
+                    "options": [
+                        "M",
+                        "F"
+                    ],
+                    "info": "Contact gender",
+                    "required": false
+                },
+                {
+                    "name": "groups",
+                    "type": "List",
+                    "structure": {
+                        "name": "group",
+                        "type": "String",
+                        "info": "Single group"
+                    },
+                    "info": "Contact groups",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Contact id",
+                    "required": false
+                },
+                {
+                    "name": "ip",
+                    "type": "String",
+                    "info": "Contact ip",
+                    "required": false
+                },
+                {
+                    "name": "language",
+                    "type": "String",
+                    "info": "Contact language",
+                    "required": false
+                },
+                {
+                    "name": "lastname",
+                    "type": "String",
+                    "info": "Contact lastname",
+                    "required": false
+                },
+                {
+                    "name": "phones",
+                    "type": "List",
+                    "structure": {
+                        "name": "phone",
+                        "type": "String",
+                        "info": "Single phone"
+                    },
+                    "info": "Contact phones",
+                    "required": false
+                },
+                {
+                    "name": "systemName",
+                    "type": "String",
+                    "info": "Contact system name",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "type",
+                    "type": "Select",
+                    "options": [
+                        "V",
+                        "R"
+                    ],
+                    "info": " V - visitor, R - registered visitor",
+                    "required": false
+                },
+                {
+                    "name": "customFields",
+                    "type": "List",
+                    "structure": {
+                        "name": "customField",
+                        "type": "String",
+                        "info": "Single customField"
+                    },
+                    "info": "Contact custom fields",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "custom_fields"
+                    }
+                },
+                {
+                    "name": "jobPosition",
+                    "type": "String",
+                    "info": "Contact job position",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "job_position"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "String",
+                    "info": "Contact coordinates",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "system_name"
+                    }
+                },
+                {
+                    "name": "note",
+                    "type": "String",
+                    "info": "Contact note",
+                    "required": false
+                },
+                {
+                    "name": "screen",
+                    "type": "String",
+                    "info": "Contact screen",
+                    "required": false
+                },
+                {
+                    "name": "timeOffset",
+                    "type": "String",
+                    "info": "Contact time offset",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "time_offset"
+                    }
+                },
+                {
+                    "name": "useragent",
+                    "type": "String",
+                    "info": "Contact useragent",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/contacts\/{$data['contactId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "useragent",
+                            "time_offset",
+                            "screen",
+                            "job_position",
+                            "custom_fields",
+                            "type",
+                            "system_name",
+                            "avatar_url",
+                            "city",
+                            "company_id",
+                            "countrycode",
+                            "description",
+                            "emails",
+                            "firstname",
+                            "gender",
+                            "groups",
+                            "id",
+                            "ip",
+                            "language",
+                            "lastname",
+                            "phones",
+                            "longitude",
+                            "latitude",
+                            "note"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteContact",
+            "description": "Deletes a contact",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "contactId",
+                    "type": "String",
+                    "info": "ID of the contact",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/contacts\/{$data['contactId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addFile",
+            "description": "Uploads file",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "file",
+                    "type": "File",
+                    "info": "File to upload",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/files",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "multipart",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listGroups",
+            "description": "Retrieves list of all groups",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/groups",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addGroup",
+            "description": "Creates new group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "backgroundColor",
+                    "type": "String",
+                    "info": "Group background color",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "background_color"
+                    }
+                },
+                {
+                    "name": "color",
+                    "type": "String",
+                    "info": "Group color",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Group id",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Group name",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/groups",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "background_color",
+                            "color",
+                            "id",
+                            "name"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleGroup",
+            "description": "Retrieves a group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "ID of the group",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/groups\/{$data['groupId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateGroup",
+            "description": "Updates a group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "ID of the group",
+                    "required": true
+                },
+                {
+                    "name": "backgroundColor",
+                    "type": "String",
+                    "info": "Group background color",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "background_color"
+                    }
+                },
+                {
+                    "name": "color",
+                    "type": "String",
+                    "info": "Group color",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Group id",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Group name",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/groups\/{$data['groupId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "background_color",
+                            "color",
+                            "id",
+                            "name"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteGroup",
+            "description": "Deletes a group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "ID of the group",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/groups\/{$data['groupId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listPhoneNumber",
+            "description": "Retrieves list of all phone numbers",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/phone_numbers",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSinglePhoneNumber",
+            "description": "Retrieves a phone number",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "phoneNumberId",
+                    "type": "String",
+                    "info": "ID of the phone number",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/phone_numbers\/{$data['phoneNumberId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listPhoneDevicess",
+            "description": "Retrieves list of all phone devices",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/phones",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSinglePhoneDevice",
+            "description": "Retrieves a phone device",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "phoneDeviceId",
+                    "type": "String",
+                    "info": "ID of the phone device",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/phones\/{$data['phoneDeviceId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updatePhoneDeviceParams",
+            "description": "Retrieves a phone device",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "phoneDeviceId",
+                    "type": "String",
+                    "info": "ID of the phone device",
+                    "required": true
+                },
+                {
+                    "name": "params",
+                    "type": "String",
+                    "info": "New params",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/phones\/{$data['phoneDeviceId']}\/_updateParams",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "form_params",
+                        "parameters": [
+                            "params"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "pingAPI",
+            "description": "Check that API is reponding",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/ping",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listPredefinedAnswers",
+            "description": "Retrieves list of all predefined answers",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/predefined_answers",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addPredefinedAnswer",
+            "description": "Create new predefined answer",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "body",
+                    "type": "String",
+                    "info": "Body of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "departmentId",
+                    "type": "String",
+                    "info": "Department of this predefined answer",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "departmentid"
+                    }
+                },
+                {
+                    "name": "format",
+                    "type": "Select",
+                    "options": [
+                        "T",
+                        "H"
+                    ],
+                    "info": "Format of this predefined answer. T - text, H - html ",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Id of this predefined answer",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "subject",
+                    "type": "String",
+                    "info": "Subject of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "ID of the user",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "userid"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/predefined_answers",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "body",
+                            "departmentid",
+                            "id",
+                            "format",
+                            "name",
+                            "subject",
+                            "userid"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSinglePredefinedAnswer",
+            "description": "Retrieves a predefined answer",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "predefinedAnswerId",
+                    "type": "String",
+                    "info": "ID of the predefined answer",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/predefined_answers\/{$data['predefinedAnswerId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updatePredefinedAnswer",
+            "description": "Update a predefined answer",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "predefinedAnswerId",
+                    "type": "String",
+                    "info": "ID of the predefined answer",
+                    "required": true
+                },
+                {
+                    "name": "body",
+                    "type": "String",
+                    "info": "Body of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "departmentId",
+                    "type": "String",
+                    "info": "Department of this predefined answer",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "departmentid"
+                    }
+                },
+                {
+                    "name": "format",
+                    "type": "Select",
+                    "options": [
+                        "T",
+                        "H"
+                    ],
+                    "info": "Format of this predefined answer. T - text, H - html ",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Id of this predefined answer",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "subject",
+                    "type": "String",
+                    "info": "Subject of this predefined answer",
+                    "required": false
+                },
+                {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "ID of the user",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "userid"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/predefined_answers\/{$data['predefinedAnswerId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "body",
+                            "departmentid",
+                            "id",
+                            "format",
+                            "name",
+                            "subject",
+                            "userid"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deletePredefinedAnswer",
+            "description": "Deletes a predefined answer",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "predefinedAnswerId",
+                    "type": "String",
+                    "info": "ID of the predefined answer",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/predefined_answers\/{$data['predefinedAnswerId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listTags",
+            "description": "Retrieves list of all tags",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tags",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addTag",
+            "description": "Creates new tag",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "backgroundColor",
+                    "type": "String",
+                    "info": "Tag background color",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "background_color"
+                    }
+                },
+                {
+                    "name": "color",
+                    "type": "String",
+                    "info": "Tag color",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Tag id",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Tag name",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tags",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "background_color",
+                            "color",
+                            "id",
+                            "name"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleTag",
+            "description": "Retrieves a tag",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "tagId",
+                    "type": "String",
+                    "info": "ID of the tag",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tags\/{$data['tagId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateTag",
+            "description": "Updates a tag",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "tagId",
+                    "type": "String",
+                    "info": "ID of the tag",
+                    "required": true
+                },
+                {
+                    "name": "backgroundColor",
+                    "type": "String",
+                    "info": "Tag background color",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "background_color"
+                    }
+                },
+                {
+                    "name": "color",
+                    "type": "String",
+                    "info": "Tag color",
+                    "required": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "info": "Tag id",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Tag name",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tags\/{$data['tagId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "background_color",
+                            "color",
+                            "id",
+                            "name"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteTag",
+            "description": "Deletes a tag",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "tagId",
+                    "type": "String",
+                    "info": "ID of the tag",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tags\/{$data['tagId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listTickets",
+            "description": "Retrieves list of all tickets",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "page",
+                    "type": "String",
+                    "info": "Page to display. Not used if from is defined.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_page"
+                    }
+                },
+                {
+                    "name": "perPage",
+                    "type": "String",
+                    "info": "Results per page. Used only if page is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_perPage"
+                    }
+                },
+                {
+                    "name": "from",
+                    "type": "String",
+                    "info": "Result set start. Takes precedence over page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_from"
+                    }
+                },
+                {
+                    "name": "to",
+                    "type": "String",
+                    "info": "Result set end. Used only if _from is used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_to"
+                    }
+                },
+                {
+                    "name": "sortDir",
+                    "type": "Select",
+                    "options": [
+                        "ASC",
+                        "DESC"
+                    ],
+                    "info": "Sorting direction ASC or DESC",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortDir"
+                    }
+                },
+                {
+                    "name": "sortField",
+                    "type": "String",
+                    "info": "Sorting field",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_sortField"
+                    }
+                },
+                {
+                    "name": "filters",
+                    "type": "String",
+                    "info": "Filters (json object{column:value, ...})",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "_filters"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "_page",
+                            "_perPage",
+                            "_from",
+                            "_to",
+                            "_sortDir",
+                            "_sortField",
+                            "_filters"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleTicket",
+            "description": "Retrieves a ticket",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateTicket",
+            "description": "Updates a ticket",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                },
+                {
+                    "name": "agentId",
+                    "type": "String",
+                    "info": "Agent ID",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "agentid"
+                    }
+                },
+                {
+                    "name": "departmentId",
+                    "type": "String",
+                    "info": "Department ID",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "departmentid"
+                    }
+                },
+                {
+                    "name": "ownerContactId",
+                    "type": "String",
+                    "info": "Owner contact ID",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "owner_contactid"
+                    }
+                },
+                {
+                    "name": "status",
+                    "type": "Select",
+                    "options": [
+                        "I",
+                        "N",
+                        "T",
+                        "P",
+                        "R",
+                        "X",
+                        "B",
+                        "A",
+                        "C",
+                        "W"
+                    ],
+                    "info": "Status of the ticket. I - init N - new T - chatting P - calling R - resolved X - deleted B - spam A - answered C - open W - postponed",
+                    "required": false
+                },
+                {
+                    "name": "tags",
+                    "type": "List",
+                    "structure": {
+                        "name": "tag",
+                        "type": "String",
+                        "info": "Single tag"
+                    },
+                    "info": "List of tags",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "agentid",
+                            "departmentid",
+                            "owner_contactid",
+                            "status",
+                            "tags"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTicketAttribute",
+            "description": "Retrieves a ticket attribute",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                },
+                {
+                    "name": "attribute",
+                    "type": "Select",
+                    "options": [
+                        "inNewOrOpenState",
+                        "endChatOrCall",
+                        "note"
+                    ],
+                    "info": "Attribute of the ticket",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}\/attributes\/{$data['attribute']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "setTicketAttribute",
+            "description": "Sets a ticket attribute",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                },
+                {
+                    "name": "attribute",
+                    "type": "Select",
+                    "options": [
+                        "inNewOrOpenState",
+                        "endChatOrCall",
+                        "note"
+                    ],
+                    "info": "Attribute of the ticket",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value of the ticket attribute",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}\/attributes\/{$data['attribute']}",
+                "method": "put",
+                "requestParameters": [
+                    {
+                        "type": "form_params",
+                        "parameters": [
+                            "value"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTicketSla",
+            "description": "Retrieves a ticket sla",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}\/sla",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteTicket",
+            "description": "Deletes a ticket",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true
+                },
+                {
+                    "name": "organizationName",
+                    "type": "String",
+                    "info": "Name of your organization",
+                    "required": true
+                },
+                {
+                    "name": "ticketId",
+                    "type": "String",
+                    "info": "ID of the ticket",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/tickets\/{$data['ticketId']}",
+                "method": "delete",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": []
+                    }
+                ],
+                "headers": {
+                    "apikey": "{$data['apiKey']}",
+                    "Content-Type": "application\/json"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
