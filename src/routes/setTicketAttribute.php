@@ -15,7 +15,7 @@ $app->post('/api/LiveAgent/setTicketAttribute', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','ticketId'=>'ticketId','attribute'=>'attribute','value'=>'value'];
     $optionalParams = [];
     $bodyParams = [
-       'form_params' => ['value']
+       'query' => ['value']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

@@ -15,7 +15,7 @@ $app->post('/api/LiveAgent/addCall', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','callId'=>'callId','toNumber'=>'to_number','fromNumber'=>'from_number'];
     $optionalParams = ['channelId'=>'channelId','viaNumber'=>'via_number','ticketId'=>'ticketId','direction'=>'direction'];
     $bodyParams = [
-       'json' => ['channelId','to_number','via_number','from_number','ticketId','direction']
+       'query' => ['channelId','to_number','via_number','from_number','ticketId','direction']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -30,7 +30,8 @@ $app->post('/api/LiveAgent/addCall', function ($request, $response) {
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}", "Content-Type"=>"application/json"];
      
-
+//var_dump($requestParams);
+//exit();
     try {
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();

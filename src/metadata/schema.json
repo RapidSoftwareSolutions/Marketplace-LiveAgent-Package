@@ -563,7 +563,7 @@
                 "method": "post",
                 "requestParameters": [
                     {
-                        "type": "json",
+                        "type": "query",
                         "parameters": [
                             "channelId",
                             "to_number",
@@ -1620,7 +1620,7 @@
                     "name": "name",
                     "type": "String",
                     "info": "Company name",
-                    "required": false
+                    "required": true
                 },
                 {
                     "name": "phones",
@@ -2301,7 +2301,7 @@
                     "name": "lastname",
                     "type": "String",
                     "info": "Contact lastname",
-                    "required": false
+                    "required": true
                 },
                 {
                     "name": "phones",
@@ -4597,7 +4597,7 @@
                         "W"
                     ],
                     "info": "Status of the ticket. I - init N - new T - chatting P - calling R - resolved X - deleted B - spam A - answered C - open W - postponed",
-                    "required": false
+                    "required": true
                 },
                 {
                     "name": "tags",
@@ -4746,7 +4746,7 @@
                 "method": "put",
                 "requestParameters": [
                     {
-                        "type": "form_params",
+                        "type": "query",
                         "parameters": [
                             "value"
                         ]
