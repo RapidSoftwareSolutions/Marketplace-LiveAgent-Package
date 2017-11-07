@@ -15,7 +15,7 @@ $app->post('/api/LiveAgent/mergeCalls', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','callId'=>'callId','secCallId'=>'secCallId'];
     $optionalParams = ['agentId'=>'agentId'];
     $bodyParams = [
-       'json' => ['secCallId','agentId']
+       'form_params' => ['secCallId','agentId']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
