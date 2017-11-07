@@ -23,7 +23,7 @@ $app->post('/api/LiveAgent/updateCannedMessage', function ($request, $response) 
     
 
     $client = $this->httpClient;
-    $query_str = "https://{$data['organizationName']}.ladesk.com/api/v3/canned_messages/{$data['cannedMessageId']}";
+    $query_str = "https://{$data['organizationName']}.ladesk.com/api/v3/canned_messages/{$data['id']}";
 
     
 
