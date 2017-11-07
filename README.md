@@ -125,16 +125,6 @@ Set call as answered by agent
 | callId          | String     | ID of the call
 | toNumber        | String     | Callee number
 
-## LiveAgent.mergeCalls
-Merge secondary call into main call
-
-| Field           | Type       | Description
-|-----------------|------------|----------
-| apiKey          | credentials| Your API key
-| organizationName| String     | Name of your organization
-| callId          | String     | ID of the call
-| secCallId       | String     | Callee number
-| agentId         | String     | Agent ID for removing from the call
 
 ## LiveAgent.rerouteCall
 Lets the call ring to an another agent if available

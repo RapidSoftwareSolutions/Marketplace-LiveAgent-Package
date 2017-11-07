@@ -649,69 +649,7 @@
                 }
             ]
         },
-        {
-            "name": "mergeCalls",
-            "description": "Merge secondary call into main call",
-            "args": [
-                {
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "Your API key",
-                    "required": true
-                },
-                {
-                    "name": "organizationName",
-                    "type": "String",
-                    "info": "Name of your organization",
-                    "required": true
-                },
-                {
-                    "name": "callId",
-                    "type": "String",
-                    "info": "ID of the call",
-                    "required": true
-                },
-                {
-                    "name": "secCallId",
-                    "type": "String",
-                    "info": "Callee number",
-                    "required": true
-                },
-                {
-                    "name": "agentId",
-                    "type": "String",
-                    "info": "Agent ID for removing from the call",
-                    "required": false
-                }
-            ],
-            "vendorRequest": {
-                "url": "https:\/\/{$data['organizationName']}.ladesk.com\/api\/v3\/calls\/{$data['callId']}\/_merge",
-                "method": "post",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "secCallId",
-                            "agentId"
-                        ]
-                    }
-                ],
-                "headers": {
-                    "apikey": "{$data['apiKey']}",
-                    "Content-Type": "application\/json"
-                }
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
+
         {
             "name": "rerouteCall",
             "description": "Lets the call ring to an another agent if available",

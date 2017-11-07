@@ -15,13 +15,13 @@ $app->post('/api/LiveAgent/mergeCalls', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','callId'=>'callId','secCallId'=>'secCallId'];
     $optionalParams = ['agentId'=>'agentId'];
     $bodyParams = [
-       'query' => ['secCallId','agentId']
+       'query' => ['secCallId','agentId', 'first_channel']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
     
-
+    $data['first_channel'] = "true";
     $client = $this->httpClient;
     $query_str = "https://{$data['organizationName']}.ladesk.com/api/v3/calls/{$data['callId']}/_merge";
 
@@ -29,7 +29,6 @@ $app->post('/api/LiveAgent/mergeCalls', function ($request, $response) {
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}", "Content-Type"=>"application/json"];
-     
 
     try {
         $resp = $client->post($query_str, $requestParams);
