@@ -334,6 +334,7 @@ Deletes a company
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
 | companyId       | String     | ID of the company
+| deleteTickets       | Select     | If tickets should be deleted set true
 
 ## LiveAgent.listContacts
 Retrieves list of all contacts

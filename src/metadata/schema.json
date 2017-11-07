@@ -1892,7 +1892,7 @@
                     "name": "name",
                     "type": "String",
                     "info": "Company name",
-                    "required": false
+                    "required": true
                 },
                 {
                     "name": "phones",
@@ -2041,6 +2041,13 @@
                     "type": "String",
                     "info": "ID of the company",
                     "required": true
+                },
+                {
+                    "name": "deleteTickets",
+                    "type": "Select",
+                    "options":["true", "false"],
+                    "info": "If tickets should be deleted set true",
+                    "required": true
                 }
             ],
             "vendorRequest": {
@@ -2049,7 +2056,9 @@
                 "requestParameters": [
                     {
                         "type": "query",
-                        "parameters": []
+                        "parameters": [
+                            "deleteTickets"
+                        ]
                     }
                 ],
                 "headers": {
@@ -3547,7 +3556,7 @@
                 "method": "put",
                 "requestParameters": [
                     {
-                        "type": "form_params",
+                        "type": "query",
                         "parameters": [
                             "params"
                         ]

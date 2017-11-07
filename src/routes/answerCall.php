@@ -15,7 +15,7 @@ $app->post('/api/LiveAgent/answerCall', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','callId'=>'callId','toNumber'=>'to_number'];
     $optionalParams = [];
     $bodyParams = [
-       'json' => ['to_number']
+       'query' => ['to_number']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

@@ -15,7 +15,7 @@ $app->post('/api/LiveAgent/updatePhoneDeviceParams', function ($request, $respon
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','phoneDeviceId'=>'phoneDeviceId','params'=>'params'];
     $optionalParams = [];
     $bodyParams = [
-       'form_params' => ['params']
+       'query' => ['params']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
