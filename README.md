@@ -431,6 +431,7 @@ Deletes a contact
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
 | contactId       | String     | ID of the contact
+| deleteTickets       | Select     | If tickets should be deleted set true
 
 ## LiveAgent.addFile
 Uploads file

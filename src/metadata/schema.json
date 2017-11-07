@@ -2621,7 +2621,7 @@
                     "name": "lastname",
                     "type": "String",
                     "info": "Contact lastname",
-                    "required": false
+                    "required": true
                 },
                 {
                     "name": "phones",
@@ -2784,6 +2784,13 @@
                     "type": "String",
                     "info": "ID of the contact",
                     "required": true
+                },
+                {
+                    "name": "deleteTickets",
+                    "type": "Select",
+                    "options":["true", "false"],
+                    "info": "If tickets should be deleted set true",
+                    "required": true
                 }
             ],
             "vendorRequest": {
@@ -2792,7 +2799,9 @@
                 "requestParameters": [
                     {
                         "type": "query",
-                        "parameters": []
+                        "parameters": [
+                            "deleteTickets"
+                        ]
                     }
                 ],
                 "headers": {

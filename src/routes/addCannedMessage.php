@@ -29,7 +29,7 @@ $app->post('/api/LiveAgent/addCannedMessage', function ($request, $response) {
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}", "Content-Type"=>"application/json"];
-     
+
 
     try {
         $resp = $client->post($query_str, $requestParams);
