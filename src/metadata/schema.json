@@ -689,7 +689,7 @@
                 "method": "post",
                 "requestParameters": [
                     {
-                        "type": "json",
+                        "type": "query",
                         "parameters": [
                             "secCallId",
                             "agentId"

@@ -33,9 +33,15 @@ $app->post('/api/LiveAgent/addFile', function ($request, $response) {
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
-    $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}", "Content-Type"=>"application/json"];
-     
+    $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}"];
+    $requestParams['multipart'] =
+        [
+            [
+                "name"=>"file",
+                "contents"=>fopen($post_data['args']['file'], r)
+            ]
 
+    ];
     try {
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
