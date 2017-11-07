@@ -12,8 +12,8 @@ $app->post('/api/LiveAgent/addContact', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','companyId'=>'companyId'];
-    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','companyId'=>'company_id','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','firstname'=>'firstname','gender'=>'gender','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','lastname'=>'lastname','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','jobPosition'=>'job_position','coordinates'=>'system_name','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
+    $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','companyId'=>'company_id'];
+    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','firstname'=>'firstname','gender'=>'gender','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','lastname'=>'lastname','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','jobPosition'=>'job_position','coordinates'=>'system_name','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
     $bodyParams = [
        'json' => ['useragent','time_offset','screen','job_position','custom_fields','type','system_name','avatar_url','city','company_id','countrycode','description','emails','firstname','gender','groups','id','ip','language','lastname','phones','longitude','latitude','note']
     ];

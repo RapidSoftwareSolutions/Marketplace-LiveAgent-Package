@@ -357,7 +357,6 @@ Adds new contact
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| companyId       | String     | ID of the company
 | avatarUrl       | String     | Url to contact avatar
 | city            | String     | Contact city
 | companyId       | String     | Id of the company

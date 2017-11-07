@@ -2201,12 +2201,7 @@
                     "info": "Name of your organization",
                     "required": true
                 },
-                {
-                    "name": "companyId",
-                    "type": "String",
-                    "info": "ID of the company",
-                    "required": true
-                },
+
                 {
                     "name": "avatarUrl",
                     "type": "String",

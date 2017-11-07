@@ -15,7 +15,12 @@ $app->post('/api/LiveAgent/addFile', function ($request, $response) {
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','file'=>'file'];
     $optionalParams = [];
     $bodyParams = [
-       'multipart' => ['']
+       'multipart' => [
+           [
+               "name"=>"file",
+               "contents"=>fopen($post_data['args']['file'], r)
+           ]
+       ]
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
