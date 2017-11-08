@@ -3057,7 +3057,7 @@
                     "name": "name",
                     "type": "String",
                     "info": "Group name",
-                    "required": false
+                    "required": true
                 }
             ],
             "vendorRequest": {
