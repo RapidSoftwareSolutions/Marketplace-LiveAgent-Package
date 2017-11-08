@@ -272,7 +272,7 @@ Creates new company
 | systemName      | String     | Company system name
 | type            | Select     |  V - visitor, R - registered visitor
 | customFields    | List       | Company custom fields
-| coordinates     | String     | Company coordinates
+| coordinates     | Map     | Company coordinates
 | note            | String     | Company note
 | screen          | String     | Company screen
 | timeOffset      | String     | Company time offset
@@ -309,7 +309,7 @@ Updates a company
 | systemName      | String     | Company system name
 | type            | Select     |  V - visitor, R - registered visitor
 | customFields    | List       | Company custom fields
-| coordinates     | String     | Company coordinates
+| coordinates     | Map     | Company coordinates
 | note            | String     | Company note
 | screen          | String     | Company screen
 | timeOffset      | String     | Company time offset
@@ -365,7 +365,7 @@ Adds new contact
 | type            | Select     |  V - visitor, R - registered visitor
 | customFields    | List       | Contact custom fields
 | jobPosition     | String     | Contact job position
-| coordinates     | String     | Contact coordinates
+| coordinates     | Map     | Contact coordinates
 | note            | String     | Contact note
 | screen          | String     | Contact screen
 | timeOffset      | String     | Contact time offset
@@ -406,7 +406,7 @@ Updates a contact
 | type            | Select     |  V - visitor, R - registered visitor
 | customFields    | List       | Contact custom fields
 | jobPosition     | String     | Contact job position
-| coordinates     | String     | Contact coordinates
+| coordinates     | Map     | Contact coordinates
 | note            | String     | Contact note
 | screen          | String     | Contact screen
 | timeOffset      | String     | Contact time offset

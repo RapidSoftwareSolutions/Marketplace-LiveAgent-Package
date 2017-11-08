@@ -1605,7 +1605,7 @@
                 },
                 {
                     "name": "coordinates",
-                    "type": "String",
+                    "type": "Map",
                     "info": "Company coordinates",
                     "required": false,
                     "vendorSchema": {
@@ -1877,7 +1877,7 @@
                 },
                 {
                     "name": "coordinates",
-                    "type": "String",
+                    "type": "Map",
                     "info": "Company coordinates",
                     "required": false,
                     "vendorSchema": {
@@ -2304,7 +2304,7 @@
                 },
                 {
                     "name": "coordinates",
-                    "type": "String",
+                    "type": "Map",
                     "info": "Contact coordinates",
                     "required": false,
                     "vendorSchema": {
@@ -2615,7 +2615,7 @@
                 },
                 {
                     "name": "coordinates",
-                    "type": "String",
+                    "type": "Map",
                     "info": "Contact coordinates",
                     "required": false,
                     "vendorSchema": {
