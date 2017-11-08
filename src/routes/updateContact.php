@@ -13,13 +13,16 @@ $app->post('/api/LiveAgent/updateContact', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','contactId'=>'contactId'];
-    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','companyId'=>'company_id','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','firstname'=>'firstname','gender'=>'gender','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','lastname'=>'lastname','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','jobPosition'=>'job_position','coordinates'=>'system_name','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
+    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','companyId'=>'company_id','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','firstname'=>'firstname','gender'=>'gender','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','lastname'=>'lastname','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','jobPosition'=>'job_position','coordinates'=>'coordinates','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
     $bodyParams = [
        'json' => ['useragent','time_offset','screen','job_position','custom_fields','type','system_name','avatar_url','city','company_id','countrycode','description','emails','firstname','gender','groups','id','ip','language','lastname','phones','longitude','latitude','note']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-
+    if(!empty($data['coordinates'])){
+        $data['latitude'] = explode(',', $data['coordinates'])[0];
+        $data['longitude'] = explode(',', $data['coordinates'])[1];
+    }
     
 
     $client = $this->httpClient;

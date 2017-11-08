@@ -385,8 +385,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -395,7 +395,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -404,7 +404,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -412,8 +412,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -712,7 +712,7 @@
         },
         {
             "name": "ringCall",
-            "description": "Lets the call ring to an another agent if available",
+            "description": "Lets the call ring",
             "args": [
                 {
                     "name": "apiKey",
@@ -880,10 +880,9 @@
                         "H",
                         "A",
                         "S",
-                        "N",
-                        "NF"
+                        "N"
                     ],
-                    "info": "T (text), H (html), A (audio - url to audio file or fileId), S (system), N (note), NF (note file)",
+                    "info": "T (text), H (html), A (audio - url to audio file or fileId), S (system), N (note)",
                     "required": true
                 }
             ],
@@ -981,8 +980,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -991,7 +990,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -1000,7 +999,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -1008,8 +1007,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -1083,7 +1082,7 @@
         },
         {
             "name": "addCannedMessage",
-            "description": "Creates new canned message`",
+            "description": "Creates new canned message",
             "args": [
                 {
                     "name": "apiKey",
@@ -1170,7 +1169,7 @@
         },
         {
             "name": "getSingleCannedMessage",
-            "description": "Retrives canned message`",
+            "description": "Retrives canned message",
             "args": [
                 {
                     "name": "apiKey",
@@ -1218,7 +1217,7 @@
         },
         {
             "name": "updateCannedMessage",
-            "description": "Updates canned message`",
+            "description": "Updates canned message",
             "args": [
                 {
                     "name": "apiKey",
@@ -1305,7 +1304,7 @@
         },
         {
             "name": "deleteCannedMessage",
-            "description": "Deletes canned message`",
+            "description": "Deletes canned message",
             "args": [
                 {
                     "name": "apiKey",
@@ -1368,8 +1367,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -1378,7 +1377,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -1387,7 +1386,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -1395,8 +1394,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -1610,7 +1609,7 @@
                     "info": "Company coordinates",
                     "required": false,
                     "vendorSchema": {
-                        "name": "system_name"
+                        "name": "coordinates"
                     }
                 },
                 {
@@ -1882,7 +1881,7 @@
                     "info": "Company coordinates",
                     "required": false,
                     "vendorSchema": {
-                        "name": "system_name"
+                        "name": "coordinates"
                     }
                 },
                 {
@@ -2032,8 +2031,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -2042,7 +2041,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -2051,7 +2050,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -2059,8 +2058,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -2309,7 +2308,7 @@
                     "info": "Contact coordinates",
                     "required": false,
                     "vendorSchema": {
-                        "name": "system_name"
+                        "name": "coordinates"
                     }
                 },
                 {
@@ -2620,7 +2619,7 @@
                     "info": "Contact coordinates",
                     "required": false,
                     "vendorSchema": {
-                        "name": "system_name"
+                        "name": "coordinates"
                     }
                 },
                 {
@@ -2823,8 +2822,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -2833,7 +2832,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -2842,7 +2841,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -2850,8 +2849,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3156,8 +3155,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -3166,7 +3165,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3175,7 +3174,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -3183,8 +3182,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3321,8 +3320,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -3331,7 +3330,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3340,7 +3339,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -3348,8 +3347,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3471,7 +3470,7 @@
         },
         {
             "name": "updatePhoneDeviceParams",
-            "description": "Retrieves a phone device",
+            "description": "Update a phone device params",
             "args": [
                 {
                     "name": "apiKey",
@@ -3584,8 +3583,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -3594,7 +3593,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -3603,7 +3602,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -3611,8 +3610,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -4007,8 +4006,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -4017,7 +4016,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -4026,7 +4025,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -4034,8 +4033,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {
@@ -4340,8 +4339,8 @@
                     "required": true
                 },
                 {
-                    "name": "page",
-                    "type": "String",
+                   "name": "page",
+                    "type": "Number",
                     "info": "Page to display. Not used if from is defined.",
                     "required": false,
                     "vendorSchema": {
@@ -4350,7 +4349,7 @@
                 },
                 {
                     "name": "perPage",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Results per page. Used only if page is used.",
                     "required": false,
                     "vendorSchema": {
@@ -4359,7 +4358,7 @@
                 },
                 {
                     "name": "from",
-                    "type": "String",
+                    "type": "Number",
                     "info": "Result set start. Takes precedence over page.",
                     "required": false,
                     "vendorSchema": {
@@ -4367,8 +4366,8 @@
                     }
                 },
                 {
-                    "name": "to",
-                    "type": "String",
+                   "name": "to",
+                    "type": "Number",
                     "info": "Result set end. Used only if _from is used.",
                     "required": false,
                     "vendorSchema": {

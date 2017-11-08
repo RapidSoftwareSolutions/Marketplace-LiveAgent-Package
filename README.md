@@ -92,10 +92,10 @@ Retrieves list of all calls
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -125,7 +125,6 @@ Set call as answered by agent
 | callId          | String     | ID of the call
 | toNumber        | String     | Callee number
 
-
 ## LiveAgent.rerouteCall
 Lets the call ring to an another agent if available
 
@@ -137,7 +136,7 @@ Lets the call ring to an another agent if available
 | reason          | Select     | T - timeout, D - decline
 
 ## LiveAgent.ringCall
-Lets the call ring to an another agent if available
+Lets the call ring
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -167,7 +166,7 @@ Adds a message to the call group in corresponfing ticket
 | callId          | String     | ID of the call
 | fromNumber      | String     | Caller number
 | message         | String     | Message body
-| type            | Select     | T (text), H (html), A (audio - url to audio file or fileId), S (system), N (note), NF (note file)
+| type            | Select     | T (text), H (html), A (audio - url to audio file or fileId), S (system), N (note)
 
 ## LiveAgent.getCallStatus
 Return the status of call
@@ -185,16 +184,16 @@ List all canned messages
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
 
 ## LiveAgent.addCannedMessage
-Creates new canned message`
+Creates new canned message
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -207,7 +206,7 @@ Creates new canned message`
 | userId          | String     | ID of the user
 
 ## LiveAgent.getSingleCannedMessage
-Retrives canned message`
+Retrives canned message
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -216,7 +215,7 @@ Retrives canned message`
 | cannedMessageId | String     | ID of the canned message
 
 ## LiveAgent.updateCannedMessage
-Updates canned message`
+Updates canned message
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -229,7 +228,7 @@ Updates canned message`
 | userId          | String     | ID of the user
 
 ## LiveAgent.deleteCannedMessage
-Deletes canned message`
+Deletes canned message
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -244,10 +243,10 @@ Retrieves list of all companies
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -324,7 +323,7 @@ Deletes a company
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
 | companyId       | String     | ID of the company
-| deleteTickets       | Select     | If tickets should be deleted set true
+| deleteTickets   | Select     | If tickets should be deleted set true
 
 ## LiveAgent.listContacts
 Retrieves list of all contacts
@@ -333,10 +332,10 @@ Retrieves list of all contacts
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -421,7 +420,7 @@ Deletes a contact
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
 | contactId       | String     | ID of the contact
-| deleteTickets       | Select     | If tickets should be deleted set true
+| deleteTickets   | Select     | If tickets should be deleted set true
 
 ## LiveAgent.addFile
 Uploads file
@@ -439,10 +438,10 @@ Retrieves list of all groups
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 
 ## LiveAgent.addGroup
 Creates new group
@@ -494,10 +493,10 @@ Retrieves list of all phone numbers
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -518,10 +517,10 @@ Retrieves list of all phone devices
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -536,7 +535,7 @@ Retrieves a phone device
 | phoneDeviceId   | String     | ID of the phone device
 
 ## LiveAgent.updatePhoneDeviceParams
-Retrieves a phone device
+Update a phone device params
 
 | Field           | Type       | Description
 |-----------------|------------|----------
@@ -560,10 +559,10 @@ Retrieves list of all predefined answers
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})
@@ -624,10 +623,10 @@ Retrieves list of all tags
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 
 ## LiveAgent.addTag
 Creates new tag
@@ -679,10 +678,10 @@ Retrieves list of all tickets
 |-----------------|------------|----------
 | apiKey          | credentials| Your API key
 | organizationName| String     | Name of your organization
-| page            | String     | Page to display. Not used if from is defined.
-| perPage         | String     | Results per page. Used only if page is used.
-| from            | String     | Result set start. Takes precedence over page.
-| to              | String     | Result set end. Used only if _from is used.
+| page            | Number     | Page to display. Not used if from is defined.
+| perPage         | Number     | Results per page. Used only if page is used.
+| from            | Number     | Result set start. Takes precedence over page.
+| to              | Number     | Result set end. Used only if _from is used.
 | sortDir         | Select     | Sorting direction ASC or DESC
 | sortField       | String     | Sorting field
 | filters         | String     | Filters (json object{column:value, ...})

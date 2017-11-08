@@ -13,14 +13,17 @@ $app->post('/api/LiveAgent/updateCompany', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'apiKey','organizationName'=>'organizationName','companyId'=>'companyId'];
-    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','name'=>'name','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','coordinates'=>'system_name','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
+    $optionalParams = ['avatarUrl'=>'avatar_url','city'=>'city','countryCode'=>'countrycode','description'=>'description','emails'=>'emails','groups'=>'groups','id'=>'id','ip'=>'ip','language'=>'language','name'=>'name','phones'=>'phones','systemName'=>'system_name','type'=>'type','customFields'=>'custom_fields','coordinates'=>'coordinates','note'=>'note','screen'=>'screen','timeOffset'=>'time_offset','useragent'=>'useragent'];
     $bodyParams = [
        'json' => ['useragent','time_offset','screen','note','avatar_url','city','countrycode','description','emails','groups','id','ip','language','name','phones','system_name','type','latitude','longitude']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+    if(!empty($data['coordinates'])){
+        $data['latitude'] = explode(',', $data['coordinates'])[0];
+        $data['longitude'] = explode(',', $data['coordinates'])[1];
+    }
 
     $client = $this->httpClient;
     $query_str = "https://{$data['organizationName']}.ladesk.com/api/v3/companies/{$data['companyId']}";
